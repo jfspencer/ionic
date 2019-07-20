@@ -1,6 +1,6 @@
 {
   "name": "@ionic/react",
-  "version": "0.0.8",
+  "version": "0.0.8-1",
   "description": "React specific wrapper for @ionic/core",
   "keywords": [
     "ionic",
@@ -37,7 +37,7 @@
   ],
   "dependencies": {
     "@ionic/core": "^4.6.0",
-    "@ionic/react-core": "file:/Users/elylucas/Documents/projects/ionic/ionic/packages/react-core/ionic-react-core-0.0.8.tgz",
+    "@ionic/react-core": "0.0.8-1",
     "tslib": "^1.10.0"
   },
   "peerDependencies": {
