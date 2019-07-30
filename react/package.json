@@ -1,6 +1,6 @@
 {
   "name": "@ionic/react",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "React specific wrapper for @ionic/core",
   "keywords": [
     "ionic",
@@ -36,8 +36,8 @@
     "dist/"
   ],
   "dependencies": {
-    "@ionic/core": "^4.6.0",
-    "@ionic/react-core": "0.0.8-1",
+    "@ionic/core": "^4.7.0",
+    "@ionic/react-core": "0.0.9",
     "tslib": "^1.10.0"
   },
   "peerDependencies": {
@@ -53,7 +53,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^4.4.4",
     "@types/react-router-dom": "^4.3.1",
-    "ionicons": "^4.6.2-0",
+    "ionicons": "^4.6.2",
     "jest": "^24.8.0",
     "jest-dom": "^3.4.0",
     "np": "^5.0.1",
