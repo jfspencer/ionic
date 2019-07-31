@@ -43,8 +43,6 @@ export class ReorderGroup implements ComponentInterface {
     if (this.gesture) {
       this.gesture.setDisabled(this.disabled);
     }
-    const a = { a: 2 };
-    delete a.a;
   }
 
   /**
@@ -54,7 +52,7 @@ export class ReorderGroup implements ComponentInterface {
    */
   @Event() ionItemReorder!: EventEmitter<ItemReorderEventDetail>;
 
-  async componentDidLoad() {
+  async connectedCallback() {
     const contentEl = this.el.closest('ion-content');
     if (contentEl) {
       this.scrollEl = await contentEl.getScrollElement();
@@ -76,7 +74,7 @@ export class ReorderGroup implements ComponentInterface {
     this.disabledChanged();
   }
 
-  componentDidUnload() {
+  disconnectedCallback() {
     this.onEnd();
     if (this.gesture) {
       this.gesture.destroy();

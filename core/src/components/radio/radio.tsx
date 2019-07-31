@@ -42,24 +42,12 @@ export class Radio implements ComponentInterface {
   /**
    * If `true`, the radio is selected.
    */
-  @Prop({ mutable: true }) checked = false;
+  @Prop({ mutable: true, reflect: true }) checked = false;
 
   /**
    * the value of the radio.
    */
   @Prop({ mutable: true }) value?: any | null;
-
-  /**
-   * Emitted when the radio loads.
-   * @internal
-   */
-  @Event() ionRadioDidLoad!: EventEmitter<void>;
-
-  /**
-   * Emitted when the radio unloads.
-   * @internal
-   */
-  @Event() ionRadioDidUnload!: EventEmitter<void>;
 
   /**
    * Emitted when the styles change.
@@ -114,14 +102,6 @@ export class Radio implements ComponentInterface {
       this.value = this.inputId;
     }
     this.emitStyle();
-  }
-
-  componentDidLoad() {
-    this.ionRadioDidLoad.emit();
-  }
-
-  componentDidUnload() {
-    this.ionRadioDidUnload.emit();
   }
 
   private emitStyle() {

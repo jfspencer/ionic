@@ -5,6 +5,7 @@ import { ActionSheetButton, ActionSheetOptions, AlertInput, AlertOptions, CssCla
 import { findItemLabel, renderHiddenInput } from '../../utils/helpers';
 import { actionSheetController, alertController, popoverController } from '../../utils/overlays';
 import { hostContext } from '../../utils/theme';
+import { watchForOptions } from '../../utils/watch-options';
 
 import { SelectCompareFn } from './select-interface';
 
@@ -154,6 +155,29 @@ export class Select implements ComponentInterface {
       }
 
     }
+  }
+
+  async connectedCallback() {
+    watchForOptions<HTMLIonSelectOptionElement>(this.el, 'ion-select-option', async (_el) => {
+      await this.loadOptions();
+
+      if (this.didInit) {
+        this.updateOptions();
+        this.updateOverlayOptions();
+        this.emitStyle();
+
+        /**
+         * In the event that options
+         * are not loaded at component load
+         * this ensures that any value that is
+         * set is properly rendered once
+         * options have been loaded
+         */
+        if (this.value !== undefined) {
+          this.el.forceUpdate();
+        }
+      }
+    });
   }
 
   async componentDidLoad() {
